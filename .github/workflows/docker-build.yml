@@ -25,11 +25,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-    
+   
+
       - name: Run Buildx
         run: |
              docker buildx build \
-             --platform linux/amd64,linux/arm64 \
+             --platform linux/amd64 \
              --tag mahzadkh/python-helloworld:latest \
              --output "type=image,push=true" \
              --file Dockerfile .
